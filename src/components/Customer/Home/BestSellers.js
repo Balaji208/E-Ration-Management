@@ -8,8 +8,7 @@ export const BestSellers = () => {
   return (
     <>
     <div className="mt-48  w-full h-5/6 bg-gray-100 flex flex-col justify-items items-center" id="best_Sellers">
-          <h2 className='text-4xl mt-2'>Best Sellers This Week</h2>
-          <p className='mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, blanditiis maio</p>
+          
           <div className="mb-12 flex flex-row justify-between">
 
 

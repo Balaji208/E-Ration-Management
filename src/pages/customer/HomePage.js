@@ -1,10 +1,11 @@
 import { Navbar } from "./Navbar";
 import { Carousel } from 'flowbite-react';
 
-import img1 from "../../assets/Group 2014.png";
-import img2 from "../../assets/ManagerImage.jpg";
+import Slide1 from "../../assets/carousel/Slide1.jpg"
+
 import img3 from "../../assets/carousel/Tamil Nadu Government E-Ration.jpg";
-import img4 from "../../assets/carousel/gorcery_slider.jpg"
+import Img1 from "../../assets/carousel/Img1.jpg"
+import iimg from "../../assets/carousel/iimg.jpg"
 import delivery from "../../assets/theme_delivery.png";
 
 import { motion } from "framer-motion";
@@ -15,11 +16,13 @@ import { FeauturedProduct } from "../../components/Customer/Home/FeauturedProduc
 import { GovtSchemes } from "../../components/Customer/Home/GovtSchemes";
 import { Link } from "react-router-dom";
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import { useRef } from "react";
-import { useScroll } from "framer-motion";
+
 
 
 export const HomePage = () => {
+  
+  
+  
   
  
   return (
@@ -31,15 +34,15 @@ export const HomePage = () => {
 
         <div className="mt-16 h-90 sm:h-64 xl:h-80 2xl:h-96  mb-28">
           <Carousel className=' h-104'>
-            <img src={img4} alt=".." />
-            <img src={img2} alt=".." />
-            <img src={img4} alt=".." className="w-full" />
-            <img src={img4} alt=".." />
+            <img src={img3} alt=".." />
+            <img src={iimg} alt=".." />
+            <img src={Img1} alt=".." className="w-full" />
+            <img src={Slide1} alt=".." />
           </Carousel>
         </div>
         {/*  About Section */}
-        <div className=" mt-56" >
-          <h2 className="text-center text-4xl font-bold"></h2>
+        <div className=" mt-56" id="about">
+        
           <div className="mt-8 bg-gray flex flex-row justify-center items-center">
             <motion.div className=" w-1/2 ml-8 "  >
               
@@ -47,9 +50,9 @@ export const HomePage = () => {
             </motion.div>
             <div className="w-1/2 ">
               <h1 className="text-4xl font-bold mb-4 mt-0">What is <span className="text-4xl text-orange-500">E-Ration </span>?</h1>
-              <div className="mt-8 text-2xl w-5/6">
+              <div className="mt-8 text-xl font-medium w-5/6">
                 <div className="mr-16"><FormatQuoteIcon className="w-20"/></div>
-                A digital hub helps you to order your essentials with only a few clicks. plus, we'll deliver your products straight to your doorstep, so you can skip waiting in queue for hours. and the price of the products is also mentioned. And no worries!! your details will be more secured and locked, can be accessed only by you!! HAPPY ORDERING!!!
+                A digital hub helps you to order your essentials with only a few clicks. plus, we'll deliver your products straight to your doorstep, so you can skip waiting in queue for hours. and the price of the products is also mentioned. And no worries!! your details will be more secured and locked, can be accessed only by you  !!  HAPPY Ordering !!!
                 <span>
                 <FormatQuoteIcon className="w-20"/>
                 </span>
@@ -77,7 +80,7 @@ export const HomePage = () => {
           
         </div>
          
-          <div className="mt-4 flex flex-row">
+          <div id="FeauturedProduct" className="mt-4 flex flex-row">
             <FeauturedProduct />
              
           </div >
@@ -91,7 +94,7 @@ export const HomePage = () => {
    
 
     {/* Government Schemes */}
-    <div className="mt-16">
+    <div className="mt-16" id="GovernmentSchemes">
     <h2 className="text-center text-4xl font-bold">Government Schemes</h2>
     <div className="flex  ">
 
