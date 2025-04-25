@@ -10,8 +10,9 @@ export const FamilyMembers = () => {
       {
    try{
       
-         
+            console.log(RID)
             const res =  await axios.get(`http://localhost:4000/Customer/fetchFamily/${RID}`)
+            console.log(res);
           setFamily(res.data)
          
 
@@ -45,7 +46,7 @@ export const FamilyMembers = () => {
                D.O.B
             </div>
             <div className='shadow-lg shadow-gray-200  w-3/5 '>
-               <p className='p-1 ml-4 font-semibold'>{item.Date_of_Birth.slice(0,10)}</p>
+               <p className='p-1 ml-4 font-semibold'>{item.dateOfBirth.slice(0,10)}</p>
             </div>
          </div>
          <div  className='flex flex-row mt-4 ml-4'>
@@ -53,7 +54,7 @@ export const FamilyMembers = () => {
                Age
             </div>
             <div className='shadow-lg shadow-gray-200  w-3/5 '>
-               <p className='p-1 ml-4 font-semibold'>{item.Age}</p>
+               <p className='p-1 ml-4 font-semibold'>{item.age}</p>
             </div>
          </div>
          <div  className='flex flex-row mt-4 ml-4'>
@@ -61,7 +62,7 @@ export const FamilyMembers = () => {
                Relationship
             </div>
             <div className='shadow-lg shadow-gray-200  w-3/5 '>
-               <p className='p-1 ml-4 font-semibold'>{item.Relationship}</p>
+               <p className='p-1 ml-4 font-semibold'>{item.relationship}</p>
             </div>
          </div>
       </div>

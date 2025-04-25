@@ -12,7 +12,7 @@ export const OrderedDetails = () => {
     try{
        
           
-             const res =  await axios.get(`http://localhost:4000/Customer/Order_item_History/${order_id}`)
+             const res =  await axios.get(`http://localhost:4000/Customer/OrderDetails/${order_id}`)
              
              console.log(res)
              
@@ -53,7 +53,7 @@ export const OrderedDetails = () => {
                             <h2 className='text-xl font-semibold'>Item Name</h2>
                             {
                                 orderDetails.map((p)=>(
-                                    <div>{p.item_name}</div>
+                                    <div>{p.itemName}</div>
                                   
                                 ))
                              }
@@ -74,7 +74,7 @@ export const OrderedDetails = () => {
                             {
                                 orderDetails.map((p)=>(
                                     
-                                    <div>{p.price_history}</div>
+                                    <div>{p.price}</div>
                                   
                                 ))
                              }

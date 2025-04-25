@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useState } from "react"; 
 import { useDispatch } from "react-redux";
+import { Password } from "@mui/icons-material";
 
 export const CustomerLogin = () => {
   const navigate = useNavigate();
@@ -13,35 +14,38 @@ export const CustomerLogin = () => {
 
   const [userRation, setUserRation] = useState({
     Ration_ID: 0,
+    pass_word :'',
+
   });
   const [pass, setPass] = useState("");
   const handleLogin = async () => {
     try {
+      //console.log(userRation)
       const response = await axios.post(
-        "http://localhost:4000/login-customer",
+        "http://localhost:4000/Customer/login-customer",
         userRation
       );
-      const user = response.data[0];
-      if (user.length === 0) {
-        toast.error("Invalid Login Credentials");
-      } else if (user.Pass_word === pass) {
+      // const user = response.data;
+      // console.log(response,"helo ",setUserRation.pass_word)
+      if (response.status===200) {
+        
         window.sessionStorage.setItem(
           "ID",
           JSON.stringify(userRation.Ration_ID)
         );
         try {
           const res = await axios.get(
-            `http://localhost:4000/MyProfile/${userRation.Ration_ID}`
+            `http://localhost:4000/Customer/MyProfile/${userRation.Ration_ID}`
           );
           let data = res.data;
-
-          window.sessionStorage.setItem("Shop_Id_Customer", data[0].Shop_ID);
+          console.log(res);
+          window.sessionStorage.setItem("Shop_Id_Customer", data.shopId);
           window.sessionStorage.setItem(
             "Family_Size_Customer",
-            data[0].Family_Size
+            data.familySize
           );
-
-          dispatch(getProfile(data[0]));
+       //   console.log("Before redux")
+          dispatch(getProfile(data));
         } catch (err) {
           console.log(err);
         }
@@ -49,7 +53,7 @@ export const CustomerLogin = () => {
         toast.success("User logged In Successfully");
         navigate("/");
       } else {
-        toast.error("Invalid Password");
+        toast.error("Invalid Credentials");
       }
     } catch (err) {
       toast.error(err);
@@ -102,11 +106,15 @@ export const CustomerLogin = () => {
           </label>
           <input
             type="password"
+            
             name=""
             id=""
-            onChange={(e) => setPass(e.target.value)}
+            onChange={(e) =>
+              setUserRation({ ...userRation, pass_word: e.target.value })
+            }
             style={{ "background-color": "#fff6f4" }}
             className="rouded-2xl  mx-8 p-2 "
+            
           />
         </div>
 

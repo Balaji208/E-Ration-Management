@@ -67,11 +67,11 @@ export const PlaceOrder = () => {
 
     useEffect(() => {
         const handleRequest = async () => {
-         
+            
             if (deliveryInfo.PaymentMode === 'Cash-On-Delivery' && deliveryInfo.Order_ID) {
                 try {
                     const response = await axios.post('http://localhost:4000/Customer/deliveryInfo', deliveryInfo)
-                   
+                    console.log(response)
                 }
                 catch (err) {
                     console.log(err)
@@ -109,7 +109,7 @@ export const PlaceOrder = () => {
                                     </div>
                                     <div className="">
                                         <div className='mt-2  bg-orange-100 rounded-lg h-9 w-full  '>
-                                            <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.First_Name}</p>
+                                            <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.firstName}</p>
                                         </div>
                                     </div>
 
@@ -122,7 +122,7 @@ export const PlaceOrder = () => {
                                     </div>
                                     <div className="">
                                         <div type="text" className='mt-2  bg-orange-100 rounded-lg h-9 w-full  ' >
-                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.Last_Name}</p>
+                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.lastName}</p>
                                         </div>
                                     </div>
 
@@ -137,7 +137,7 @@ export const PlaceOrder = () => {
                                     </div>
                                     <div className="">
                                         <div type="text" className='mt-2  bg-orange-100 rounded-lg h-9 w-full  '>
-                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.Address}</p>
+                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.address}</p>
                                         </div>
                                     </div>
 
@@ -150,7 +150,7 @@ export const PlaceOrder = () => {
                                     </div>
                                     <div className="">
                                         <div type="text" className='mt-2  bg-orange-100 rounded-lg h-9 w-full '>
-                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.Pincode}</p>
+                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.pincode}</p>
                                         </div>
                                     </div>
 
@@ -168,7 +168,7 @@ export const PlaceOrder = () => {
                                     </div>
                                     <div className="">
                                         <div type="text" className='mt-2  bg-orange-100 rounded-lg h-9 w-full'>
-                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.City}</p>
+                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.city}</p>
                                         </div>
                                     </div>
 
@@ -181,7 +181,7 @@ export const PlaceOrder = () => {
                                     </div>
                                     <div className="">
                                         <div type="number" className='mt-2  bg-orange-100 rounded-lg h-9 w-full' >
-                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.Phone_no}</p>
+                                        <p className='ml-4 text-xl pt-1 font-semibold'>{userDetails.phoneNo}</p>
                                         </div>
                                     </div>
 

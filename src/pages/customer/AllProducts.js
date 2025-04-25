@@ -18,6 +18,7 @@ export const AllProducts = () => {
             {
                      try{
                              const res = await axios.get(`http://localhost:4000/Customer/FetchTodayProducts/${sid}`);
+                             console.log("all Products ->",res);
                              const response = await axios.get('http://localhost:4000/ShopManager/getAllProducts');
                             
                              setProducts(res.data)
@@ -38,10 +39,10 @@ export const AllProducts = () => {
                    try{
                           
                            const {data} = await axios.get('http://localhost:4000/ShopManager/getAllProducts');
-                           
+                           console.log('all products',data);
                            setFetchItems(data)
                            
-                           console.log('img...:',data.img_url)
+                           console.log('img...:',data.url)
 
                    }
                    catch(err)
@@ -55,28 +56,28 @@ export const AllProducts = () => {
 
      //console.log('jiii',products)
     const filteredProducts = products.filter(product => {
-        if (product.Item_id === 102 && product.quantity < size * 5) {
+        if (product.itemId === 102 && product.quantity < size * 5) {
        //   product.quantity=size*5;
           return false;
         }
-        if(product.Item_id === 102 && product.quantity >= size * 5)
+        if(product.itemId === 102 && product.quantity >= size * 5)
           {
             product.quantity=size*5;
             return true;
 
           }
-        if (product.Item_id === 103 && product.quantity < size * 0.5) {
+        if (product.itemId === 103 && product.quantity < size * 0.5) {
          
           return false;
         }
-        if (product.Item_id === 103 && product.quantity >= size * 0.5) {
+        if (product.itemId === 103 && product.quantity >= size * 0.5) {
           product.quantity=size * 0.5
           return true;
         }
         if(product.quantity===0){
             return false
         }
-        if(product.Item_id === 101 && product.quantity >= 5)
+        if(product.itemId === 101 && product.quantity >= 5)
           {
             product.quantity=5;
           }
@@ -98,11 +99,11 @@ export const AllProducts = () => {
 
 <div className="mt-16 flex flex-row justify-items items-center flex-wrap max-w-350px ">
  {
-   filteredProducts.map((obj)=>(
+   filteredProducts.map((obj,index)=>(
    
     
  
-   <IndividualProduct obj={obj}  />
+   <IndividualProduct obj={obj} key={index} />
    ))
  }
 

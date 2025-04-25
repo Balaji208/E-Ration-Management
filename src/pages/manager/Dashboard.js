@@ -19,14 +19,15 @@ export const Dashboard = () => {
 
         const handleAllCustomers = async () => {
             const val = {
-                Shop_id: shop,
-                Ration_Type: selectedType
+                shopId: shop,
+                rationType: selectedType
             }
 
             try {
                 const { data } = await axios.post(`http://localhost:4000/ShopManager/AllCustomers`, val)
+
                 setAllCutsomers(data)
-                console.log(selectedType)
+                console.log(data)
 
             }
             catch (err) {
@@ -45,8 +46,8 @@ export const Dashboard = () => {
 
         const handleAllCustomersCount = async () => {
             const val = {
-                Shop_id: shop,
-                Ration_Type: selectedType
+                shopId: shop,
+                rationType: selectedType
             }
 
             try {
@@ -197,26 +198,26 @@ export const Dashboard = () => {
                             <div key={index} className=" mt-2   w-full shadow-lg rounded-lg border-black h-10 bg-white flex justify-between items-center p-2 hover:bg-gradient2"
                             >
                                 <div className="text-sm  w-1/7 text-center font-semibold ">
-                                    <h2 className=''>{person.Ration_ID}</h2>
+                                    <h2 className=''>{person.rationId}</h2>
                                 </div>
                                 <div className="text-sm  w-1/7 font-semibold text-center">
-                                    <h2 className=''>{person.Ration_Type}</h2>
+                                    <h2 className=''>{person.rationType}</h2>
                                 </div>
                                 <div className="text-sm  w-1/7  font-semibold text-center">
-                                    <h2 className=''>{person.First_Name}</h2>
+                                    <h2 className=''>{person.firstName}</h2>
                                 </div>
                                 <div className="text-sm  w-1/7 flex justify-center font-semibold items-center">
-                                    <h2 className=''>{person.Last_Name}</h2>
+                                    <h2 className=''>{person.lastName}</h2>
                                 </div>
                                 <div className="text-sm  w-1/7 flex justify-center font-semibold items-center">
-                                    <h2 className=''>{person.Phone_no}</h2>
+                                    <h2 className=''>{person.phoneNo}</h2>
                                 </div>
                                 <div className="text-sm  w-1/7 flex justify-center font-semibold items-center">
-                                    <h2 className=''>{person.City}</h2>
+                                    <h2 className=''>{person.city}</h2>
                                 </div>
                                 <div className=" w-1/7 flex justify-center font-semibold items-center">
                                     <button ><i class="bi bi-pencil-square text-purple-500 w-8 h-8 ml-3"
-                                        onClick={() => handleUpdate(person.Ration_ID)}
+                                        onClick={() => handleUpdate(person.rationId)}
                                     ></i></button>
                                 </div>
 

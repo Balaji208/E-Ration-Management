@@ -50,7 +50,9 @@ const cartSlice = createSlice(
             },
             DeliveryInfo(state,action)
             {
+                
                 state.deliveryInfo = action.payload
+                console.log(state.deliveryInfo)
             },
             OrderSuccess(state)
             {

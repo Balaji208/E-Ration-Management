@@ -4,7 +4,7 @@ import axios from 'axios';
 export const ShopDetails = () => {
   const [shop,setShop]=useState([])
   const [manager, setManager] =useState([])
-  const SID = JSON.parse(window.sessionStorage.getItem('Shop_Id_Customer'));
+  const SID = JSON.parse(window.sessionStorage.getItem('Shop_Id_Customer'))  || 121 ;
   
 
   useEffect(()=>{
@@ -12,15 +12,15 @@ export const ShopDetails = () => {
        {
     try{
        
-          
+          console.log(SID);
              const res =  await axios.get(`http://localhost:4000/Customer/fetchShop/${SID}`)
-             
-             setShop(res.data[0])
+            // console.log(res)
+             setShop(res.data)
 
-             const MID = res.data[0].mgr_id;
+             const MID = res.data.mgrId;
              const res1=await axios.get(`http://localhost:4000/Customer/fetchManager/${MID}`);
-          
-             setManager(res1.data[0])
+            // console.log(res1)
+             setManager(res1.data)
           
  
     }
@@ -90,7 +90,7 @@ export const ShopDetails = () => {
                   Manager Id
                 </div>
                 <div className='shadow-lg shadow-gray-200  w-3/5 '>
-                  <p className='p-1 ml-4 font-semibold'>{shop.mgr_id}</p>
+                  <p className='p-1 ml-4 font-semibold'>{shop.mgrId}</p>
                 </div>
               </div>
               <div className='flex flex-row mt-4 ml-4'>
@@ -106,7 +106,7 @@ export const ShopDetails = () => {
                   Contact No
                 </div>
                 <div className='shadow-lg shadow-gray-200  w-3/5 '>
-                  <p className='p-1 ml-4 font-semibold'>{manager.phone_no}</p>
+                  <p className='p-1 ml-4 font-semibold'>{manager.phoneNo}</p>
                 </div>
               </div>
               

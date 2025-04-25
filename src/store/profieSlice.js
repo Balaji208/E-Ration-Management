@@ -11,9 +11,9 @@ const profileSlice = createSlice(
         reducers:
         {
            getProfile(state,action)
-           {
+           {      //  console.log("Profile : ",action);
                   state.Myprofile = action.payload
-                  console.log(state.Myprofile)
+                  console.log('Profile REdux : ',state.Myprofile)
            },
         
 

@@ -47,6 +47,8 @@ export const CustomerRegister = () => {
            
             try {
                 const res = await axios.post(`http://localhost:4000/ShopManager/AddCustomer`, details);
+                
+                console.log(details);
                 const res1 = await axios.post('http://localhost:4000/ShopManager/AddFamily',familyMembers)
              
                 if(res.statusText==='OK' && res1.statusText==='OK')

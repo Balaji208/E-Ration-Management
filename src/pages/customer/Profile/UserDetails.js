@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 export const UserDetails = () => {
    
       const details = useSelector( state => state.profile.Myprofile)
+      
      console.log(details)
    
  
@@ -21,9 +22,9 @@ export const UserDetails = () => {
 
                      <div className="flex flex-col gap-4 p-2 mt-8 ml-4 w-44 text-gray-900 rounded-lg  bg-white  ">
                         <div className="text-center text-lg text-orange-400  font-bold">Ration ID</div>
-                        <div className='text-center'><p className='text-lg font-semibold'>{details.Ration_ID}</p></div>
+                        <div className='text-center'><p className='text-lg font-semibold'>{details.rationId}</p></div>
                         <div className="text-center text-lg text-orange-400  font-bold">Ration Type</div>
-                        <div className='justify-center items-center text-center'><p className='text-lg font-semibold'>{details.Ration_Type}</p></div>
+                        <div className='justify-center items-center text-center'><p className='text-lg font-semibold'>{details.rationType}</p></div>
                      </div>
 
                   </div>
@@ -34,7 +35,7 @@ export const UserDetails = () => {
                            Name
                         </div>
                         <div className='shadow-lg shadow-gray-200  w-3/5 '>
-                           <p className='p-1 ml-4 font-semibold'>{details.First_Name} {details.Last_Name}</p>
+                           <p className='p-1 ml-4 font-semibold'>{details.firstName} {details.lastName}</p>
                         </div>
                      </div>
                      <div className='flex flex-row mt-4 ml-4'>
@@ -42,7 +43,7 @@ export const UserDetails = () => {
                            Gender
                         </div>
                         <div className='shadow-lg shadow-gray-200  w-3/5'>
-                           <p className='p-1 ml-4 font-semibold'>{details.Gender}</p>
+                           <p className='p-1 ml-4 font-semibold'>{details.gender}</p>
                         </div>
 
                      </div>
@@ -51,7 +52,7 @@ export const UserDetails = () => {
                            D.O.B
                         </div>
                         <div className='shadow-lg shadow-gray-200  w-3/5'>
-                           <p className='p-1 ml-4 font-semibold'>{details.Date_of_Birth.slice(0,10)}</p>
+                           <p className='p-1 ml-4 font-semibold'>{details.dateOfBirth.slice(0,10)}</p>
                         </div>
 
                      </div>
@@ -60,7 +61,7 @@ export const UserDetails = () => {
                            Contact No
                         </div>
                         <div className='shadow-lg shadow-gray-200  w-3/5'>
-                           <p className='p-1 ml-4 font-semibold'>{details.Phone_no}</p>
+                           <p className='p-1 ml-4 font-semibold'>{details.phoneNo}</p>
                         </div>
 
                      </div>
@@ -70,7 +71,7 @@ export const UserDetails = () => {
                            Address
                         </div>
                         <div className='shadow-lg shadow-gray-200  w-3/5'>
-                           <p className='p-1 ml-4 font-semibold'>{details.Address}</p>
+                           <p className='p-1 ml-4 font-semibold'>{details.address}</p>
                         </div>
 
                      </div>
@@ -79,7 +80,7 @@ export const UserDetails = () => {
                            Pincode
                         </div>
                         <div className='shadow-lg shadow-gray-200  w-3/5'>
-                           <p className='p-1 ml-4 font-semibold'>{details.Pincode}</p>
+                           <p className='p-1 ml-4 font-semibold'>{details.pincode}</p>
                         </div>
 
                      </div>

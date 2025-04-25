@@ -48,11 +48,11 @@ const [but,setBut] = useState(false)
                 try{
                     
 
-                    const res = await axios.get(`http://localhost:4000/Customer/fetchItemName/${obj.Item_id}`)
-                   
+                    const res = await axios.get(`http://localhost:4000/Customer/fetchItemName/${obj.itemId}`)
+                   console.log('indivi',res);
 
-                    setName(res.data[0].Item_Name)
-                    setPrice(res.data[0].Price)
+                    setName(res.data.itemName)
+                    setPrice(res.data.price)
 
                 }
                 catch(err)
